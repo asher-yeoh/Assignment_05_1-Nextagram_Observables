@@ -1,7 +1,7 @@
  <!-- <div class="fixed"> -->
   <div id="home-button">
     <a routerLink="/">
-      <button>Home</button>
+      <button>Return to Home</button>
     </a>
   </div>
  <!-- </div>  -->
@@ -21,17 +21,30 @@
     </tr>
   </table> -->
 
-
-
 <div style="text-align:center">
   <h3>Photo Gallery</h3>
 </div>
 <div id="photo-gallery">
-  <div></div>
-<!-- <div id="photo-gallery" [specificUser]="specificUser"> -->
   <div *ngFor="let image of images">
     <img src="{{ image }}" />
   </div>
 </div>
+
+<!-- <div *ngIf="images.length === null">
+  <h3>No images</h3>
+</div>
+
+<div *ngIf="images?.length > 0">
+  <div style="text-align:center">
+    <h3>Photo Gallery</h3>
+  </div>
+  <div id="photo-gallery">
+    <div *ngFor="let image of images">
+      <img src="{{ image }}" />
+    </div>
+  </div>
+</div> -->
+
+
 
 
