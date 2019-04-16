@@ -8,13 +8,14 @@
     </tr>
     <!-- <tr *ngFor="let user of users"> -->
     <tr *ngFor="let user of users; let i = index">
-      <!-- <td>{{ user.id }}</td> -->
-      <td><a routerLink="/users/{{ user.id }}" >{{ user.id }}</a></td>
-      <td>{{ user.username }}</td>
+      <td>{{ user.id }}</td>
+      <!-- <td><a routerLink="/users/{{ user.id }}" >{{ user.id }}</a></td> -->
+      <!-- <td>{{ user.username }}</td> -->
+      <td><a routerLink="/users/{{ user.username }}" >{{ user.username }}</a></td>
       <td><img src="{{ user.profileImage }}" /></td>
     </tr>
   </table>
 </div>
-<app-user-profile></app-user-profile>
+<!-- <app-user-profile></app-user-profile> -->
 
 
