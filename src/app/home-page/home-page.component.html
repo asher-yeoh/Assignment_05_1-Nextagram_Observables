@@ -7,9 +7,13 @@
       <th>Profile Picture</th>
     </tr>
     <tr *ngFor="let user of users">
-      <td>{{ user.id }}</td>
+      <!-- <td>{{ user.id }}</td> -->
+      <td><a routerLink="/pokemon/{{ user.id }}" >{{ user.id }}</a></td>
       <td>{{ user.username }}</td>
       <td><img src="{{ user.profileImage }}" /></td>
     </tr>
   </table>
 </div>
+<app-user-profile></app-user-profile>
+
+
