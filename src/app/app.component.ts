@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserListService } from './user-list.service';
-import { User } from './user';
+// import { UserListService } from './user-list.service';
+// import { User } from './user';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +10,21 @@ import { User } from './user';
 export class AppComponent {
   title = 'Nextagram';
 
-  users: User[] = []
+  // users: User[] = []
 
-  constructor(private userListService: UserListService){}
+  // constructor(private userListService: UserListService){}
+
+  constructor( ){}
 
   ngOnInit(){
-    this.userListService.getUsers().subscribe(users => {
-      this.users = users
-    })
-  }
+        
+    }
+
+  // ngOnInit(){
+  //   this.userListService.getUsers().subscribe(users => {
+  //     this.users = users
+  //   })
+  // }
 
     // ngOnInit(){
     //     console.log(this.userListService.users)
