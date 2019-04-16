@@ -14,7 +14,7 @@ export class ImageService {
   getImages() {
     // return this.http.get<User[]>("https://insta.nextacademy.com/api/v1/users/")
     // return this.http.get(imageUrl + `${id}`)
-    return this.http.get(imageUrl + `8`)
+    return this.http.get(imageUrl + `2`)
   }
 
 }

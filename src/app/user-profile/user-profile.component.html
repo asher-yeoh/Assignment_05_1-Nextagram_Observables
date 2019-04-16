@@ -1,11 +1,11 @@
 <h2 style="text-align:center">User's Profile Page</h2>
-<div id="profile">
-  <table>
-    <tr>
-      <th>Photo Gallery</th>
-   </tr>
-    <tr *ngFor="let image of images">
-      <td><img src="{{ image }}" /></td>
-    </tr>
-  </table>
+<div style="text-align:center">
+  <h3>Photo Gallery</h3>
 </div>
+<div id="photo-gallery" >
+  <div *ngFor="let image of images">
+    <img src="{{ image }}" />
+  </div>
+</div>
+
+
