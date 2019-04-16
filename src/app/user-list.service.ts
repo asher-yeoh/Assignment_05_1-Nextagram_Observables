@@ -4,7 +4,7 @@ import { Observable } from 'rxjs'
 import { HttpClient } from '@angular/common/http'
 
 
-// const mainUrl = 'https://insta.nextacademy.com/api/v1/users/'
+const userUrl = 'https://insta.nextacademy.com/api/v1/users/'
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,8 @@ export class UserListService {
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>("https://insta.nextacademy.com/api/v1/users/")
+    // return this.http.get<User[]>("https://insta.nextacademy.com/api/v1/users/")
+    return this.http.get(userUrl)
   }
 
 //   constructor() {}
