@@ -6,12 +6,29 @@
   </div>
  <!-- </div>  -->
 
-
 <h2 style="text-align:center">User's Profile Page</h2>
+
+<!-- <table>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Profile Picture</th>
+    </tr>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td><img src="{{ user.profileImage }}" /></td>
+    </tr>
+  </table> -->
+
+
+
 <div style="text-align:center">
   <h3>Photo Gallery</h3>
 </div>
-<div id="photo-gallery" >
+<div id="photo-gallery">
+  <div></div>
+<!-- <div id="photo-gallery" [specificUser]="specificUser"> -->
   <div *ngFor="let image of images">
     <img src="{{ image }}" />
   </div>
