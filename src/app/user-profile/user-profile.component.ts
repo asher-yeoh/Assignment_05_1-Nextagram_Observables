@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from '../image.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  images = []
+
+  constructor(private imageService: ImageService) { }
 
   ngOnInit() {
+    this.imageService.getImages().subscribe(images => {
+      this.images = images
+    })
   }
 
 }

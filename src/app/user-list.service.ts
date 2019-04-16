@@ -13,7 +13,8 @@ export class UserListService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
+  // getUsers(): Observable<User[]> {
+  getUsers(){
     // return this.http.get<User[]>("https://insta.nextacademy.com/api/v1/users/")
     return this.http.get(userUrl)
   }
