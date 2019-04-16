@@ -1,25 +1,29 @@
-<h2 style="text-align:center">User List</h2>
+<div id="user-list-title">
+  <h2>User List</h2>
+</div>
 <div id="homepage">
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>Username</th>
-      <th>Profile Picture</th>
-    </tr>
-    <tr *ngFor="let user of users">
-    <!-- <tr *ngFor="let user of users; let i = index"> -->
-      <!-- <td>{{ user.id }}</td> -->
-      <td><a routerLink="/users/{{ user.id }}" >{{ user.id }}</a></td>
-      <td>{{ user.username }}</td>
-      <!-- <td><a routerLink="/users/{{ user.username }}" >{{ user.username }}</a></td> -->
-      <td><img src="{{ user.profileImage }}" /></td>
-    </tr>
-  </table>
+  <div id="user-profile" *ngFor="let user of users">
+    <table>
+      <td id="profile-pic">
+        <tr>
+          <td><img src="{{ user.profileImage }}" /></td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <td id="user-label">UserID: </td>
+          <td id="user-content"><a routerLink="/users/{{ user.id }}" >{{ user.id }}</a></td>
+        </tr>
+        <tr>
+          <td id="user-label">Username: </td>
+          <td id="user-content">{{ user.username }}</td>
+        </tr>
+      </td>
+    </table>
+  </div>
 </div>
 
 
 
-
-<!-- <app-user-profile></app-user-profile> -->
 
 

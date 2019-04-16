@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
 
   // users: User[] = []
 
-  // users = []
+  users = []
 
   constructor(private userListService: UserListService) { }
 

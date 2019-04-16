@@ -1,34 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<nav id="main">
   <h1>Welcome to {{ title }}!</h1>
   <img id="logo" width="300" src="assets/img/logo-01.png">
+</nav>
+<div id="section">
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-<!-- <h2 style="text-align:center">User List</h2>
-<div id="homepage">
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>Username</th>
-      <th>Profile Picture</th>
-    </tr>
-    <tr *ngFor="let user of users">
-      <td>{{ user.id }}</td>
-      <td>{{ user.username }}</td>
-      <td><img src="{{ user.profileImage }}" /></td>
-    </tr>
-  </table>
-</div> -->
-
-
-
-<!-- <app-home-page></app-home-page> -->
-<!-- <app-user-profile></app-user-profile> -->

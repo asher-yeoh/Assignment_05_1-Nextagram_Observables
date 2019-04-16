@@ -1,29 +1,3 @@
-.fixed {
-    position: fixed;
-    background-color: blue;
-  }
-
-img {
-    width: 400px;
-    margin: 10px;
-    vertical-align: middle;
-    border-style: outset;
-}
-
-#photo-gallery {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-#home-button {
-    margin: 50px;
-    display: flex;
-    justify-content: center;
-}
-
 button {
     background-color: rgba(91, 89, 96);
     border-radius: 12px;
@@ -37,4 +11,54 @@ button {
     color: rgb(223, 223, 223);
     outline: none;
     cursor: pointer;
+}
+
+img {
+    width: 400px;
+    margin: 10px;
+    vertical-align: middle;
+    border-style: outset;
+}
+
+#home-button {
+    position: fixed;
+    text-align: right;
+    top: 70px;
+    right: 50px;
+    z-index: 100;
+}
+
+#profile-page-title {
+    position: fixed;
+    text-align: left;
+    top: 50px;
+    left: 50px;
+    z-index: 100;
+}
+
+#photo-gallery-title {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    top: 170px;
+    left: 0;
+    z-index: 50;
+}
+
+#photo-gallery {
+    background-color: whitesmoke;
+    list-style-type: none;
+    margin: 0 250px;
+    padding: 20px;
+    min-width: 500px;
+    border-style: outset;
+    border-color: rgba(140, 128, 124, 0.9);
+    box-shadow: 3px 3px 6px  rgba(66, 64, 64, 0.7);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 65vh;
+    overflow-y: scroll;
 }
