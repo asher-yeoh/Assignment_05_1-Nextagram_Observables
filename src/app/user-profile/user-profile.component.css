@@ -37,6 +37,7 @@ img {
 }
 
 #photo-gallery-title {
+    background-color: white;
     position: fixed;
     text-align: center;
     width: 100%;
