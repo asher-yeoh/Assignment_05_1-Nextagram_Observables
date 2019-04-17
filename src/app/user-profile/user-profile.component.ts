@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
+  images: any = []
+
   id: string
 
   constructor(private imageService: ImageService, private route: ActivatedRoute) {

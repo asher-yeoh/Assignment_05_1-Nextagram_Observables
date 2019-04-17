@@ -8,7 +8,7 @@ import { UserListService } from '../user-list.service';
 })
 export class HomePageComponent implements OnInit {
 
-  users = []
+  users: any = []
 
   constructor(private userListService: UserListService) { }
 

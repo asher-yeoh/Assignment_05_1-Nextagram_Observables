@@ -14,7 +14,8 @@ button {
 }
 
 img {
-    width: 400px;
+    max-height: 600px;
+    max-width: 600px;
     margin: 10px;
     vertical-align: middle;
     border-style: outset;

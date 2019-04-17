@@ -19,8 +19,8 @@ td {
 }
 
 img {
-    max-height: 100px;
-    width: auto;
+    max-height: 200px;
+    max-width: 200px;
     vertical-align: middle;    
 }
 
@@ -63,8 +63,6 @@ a {
 }
 
 #profile-pic {
-    width: 200px;
-    height: 100px;
     display: contents;
     text-align: center;
 }
