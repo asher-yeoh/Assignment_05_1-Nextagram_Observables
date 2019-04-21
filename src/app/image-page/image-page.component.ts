@@ -6,7 +6,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 interface ImageBox {
   image: string
   like: number
-  // comments: string[]
 }
 
 @Component({
@@ -25,15 +24,9 @@ export class ImagePageComponent implements OnInit {
   username: string
   imageIndex: number
   
-  // commentList: string[] = [
-  //   'Comment 1',
-  //   'Comment 2',
-  //   'Comment 3',
-  //   'Comment 4',
-  // ]
   
   commentForm = new FormGroup({
-    commentBox: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    commentBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
   })
   
   constructor(private imageService: ImageService, private route: ActivatedRoute) {
@@ -49,7 +42,7 @@ export class ImagePageComponent implements OnInit {
         this.currentImages.push({
           'image': this.images[this.imageIndex],
           'like': 0,
-          // 'comments': ['Testing'],
+
         })
 
     })
