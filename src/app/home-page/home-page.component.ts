@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UserListService } from '../user-list.service';
 
+interface User {
+  id: number
+  username: string
+  profileImage: string
+  name: string
+}
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -8,13 +15,13 @@ import { UserListService } from '../user-list.service';
 })
 export class HomePageComponent implements OnInit {
 
-  users: any = []
+  users: User[] = []
 
   constructor(private userListService: UserListService) { }
 
   ngOnInit(){
-    this.userListService.getUsers().subscribe(users => {
-      this.users = users
+    this.userListService.getUsers().subscribe(response => {
+      this.users = response as User[]
     })
   }
 }

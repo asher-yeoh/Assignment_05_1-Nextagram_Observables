@@ -1,6 +1,6 @@
-<div id="home-button">
+<div>
   <a routerLink="/">
-    <button>Return to Home</button>
+    <button id="home-button">Return to Home</button>
   </a>
 </div>
 <div id="profile-page-title">
@@ -10,8 +10,26 @@
   <h3>Photo Gallery</h3>
 </div>
 <div id="photo-gallery">
-  <div *ngFor="let image of images">
-    <img src="{{ image }}" />
+  <div id="photo-box" *ngFor="let imageBox of imageBoxes; let i = index">
+    <table>
+      <td>
+        <tr>
+          <td>
+            <img src="{{ imageBox.image }}" />
+          </td>
+        </tr>
+        <tr>
+          <td class="feature-box">
+            <button id="like-icon" (click)="likeIncrease(i)"></button>
+            <span id="like-counter">{{ imageBox.like }}</span>
+            <!-- <button id="like-icon" (click)="productListShow=!productListShow"></button> -->
+          </td>
+        </tr>
+        <tr>
+          <td class="feature-box">Comment Box</td>
+        </tr>
+      </td>
+    </table>
   </div>
 </div>
 

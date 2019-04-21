@@ -1,32 +1,43 @@
 button {
-    background-color: rgba(91, 89, 96);
-    border-radius: 12px;
-    border-style: outset;
-    border-color: rgba(140, 128, 124);
-    text-align: center;
-    font-family: Abel;
-    font-size: larger;
-    font-weight: bold;
-    white-space: nowrap;
-    color: rgb(223, 223, 223);
     outline: none;
     cursor: pointer;
 }
 
-img {
-    max-height: 600px;
-    max-width: 600px;
-    margin: 10px;
-    vertical-align: middle;
-    border-style: outset;
-}
-
 #home-button {
+    background-color: rgba(91, 89, 96);
+    border-radius: 12px;
+    border-style: outset;
+    border-color: rgba(140, 128, 124);
+    color: rgb(223, 223, 223);
+    font-family: Abel;
+    font-size: larger;
+    font-weight: bold;
+    white-space: nowrap;
     position: fixed;
     text-align: right;
     top: 70px;
     right: 50px;
     z-index: 100;
+}
+
+#like-icon {
+    border-style: none;
+    margin: 10px 0;
+    height: 30px;
+    width: 30px;
+    outline: none;
+    background: url('/assets/img/like-01.png');
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: 30px;
+}
+
+img {
+    height: 400px;
+    width: 400px;
+    vertical-align: middle;
+    border-style: outset;
 }
 
 #profile-page-title {
@@ -63,4 +74,22 @@ img {
     justify-content: space-evenly;
     height: 65vh;
     overflow-y: scroll;
+}
+
+#photo-box {
+    border-style: outset;
+    margin: 10px;
+}
+
+.feature-box {
+    text-align: justify;
+    
+}
+
+#like-counter {
+    padding-left: 10px;
+    font-family: Abel;
+    font-size: small;
+    color: #C14242;
+    vertical-align: super;
 }
