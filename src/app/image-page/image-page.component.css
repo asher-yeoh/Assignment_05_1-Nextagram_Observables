@@ -32,6 +32,23 @@ p {
     white-space: nowrap;
     position: fixed;
     text-align: right;
+    top: 30px;
+    right: 50px;
+    z-index: 100;
+}
+
+#photo-gallery-button {
+    background-color: rgba(91, 89, 96);
+    border-radius: 12px;
+    border-style: outset;
+    border-color: rgba(140, 128, 124);
+    color: rgb(223, 223, 223);
+    font-family: Abel;
+    font-size: larger;
+    font-weight: bold;
+    white-space: nowrap;
+    position: fixed;
+    text-align: right;
     top: 70px;
     right: 50px;
     z-index: 100;

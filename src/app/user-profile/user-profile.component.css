@@ -19,22 +19,9 @@ button {
     white-space: nowrap;
     position: fixed;
     text-align: right;
-    top: 70px;
+    top: 30px;
     right: 50px;
     z-index: 100;
-}
-
-#like-icon {
-    border-style: none;
-    margin: 10px 0;
-    height: 30px;
-    width: 30px;
-    outline: none;
-    background: url('/assets/img/like-01.png');
-    background-repeat: no-repeat;
-    background-position-x: 50%;
-    background-position-y: 50%;
-    background-size: 30px;
 }
 
 img {
@@ -83,16 +70,4 @@ img {
 #photo-box {
     border-style: outset;
     margin: 10px;
-}
-
-.feature-box {
-    text-align: justify;
-    
-}
-
-#like-counter {
-    font-family: Abel;
-    font-size: small;
-    color: #C14242;
-    vertical-align: super;
 }

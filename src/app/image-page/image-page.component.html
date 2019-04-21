@@ -1,13 +1,16 @@
 <div>
+  <a routerLink="/">
+    <button id="home-button">Return to Home</button>
+  </a>
   <a routerLink="/users/{{ username }}/{{ id }}/">
-    <button id="home-button">Return to Profile Page</button>
+    <button id="photo-gallery-button">Return to Photo Gallery</button>
   </a>
 </div>
 <div id="profile-page-title">
-  <h2>{{ username }}'s Image Page</h2>
+  <h2>{{ username }}'s Photo Info</h2>
 </div>
 <div id="photo-gallery-title">
-  <h3>Photo Gallery</h3>
+  <h3>{{ username }}</h3>
 </div>
 <div id="photo-gallery">
   <div id="photo-box" *ngFor="let currentImage of currentImages; let i = index">
