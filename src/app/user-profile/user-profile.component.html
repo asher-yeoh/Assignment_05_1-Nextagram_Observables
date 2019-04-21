@@ -3,14 +3,16 @@
     <button id="home-button">Return to Home</button>
   </a>
 </div>
-<div id="profile-page-title">
-  <h2>{{ username }}'s Photo Gallery</h2>
+<div class="nav-page-title">
+  <a routerLink="/users/{{ username}}/{{ id }}/profiles" >
+    <h2 class="link">View {{ username }}'s Profile Page</h2>
+  </a>
 </div>
-<div id="photo-gallery-title">
-  <h3>{{ username }}</h3>
+<div class="page-content-title">
+  <h3>{{ username }}'s Photo Gallery</h3>
 </div>
-<div id="photo-gallery">
-  <div id="photo-box" *ngFor="let image of images; let i = index">
+<div class="display-card">
+  <div class="display-box" *ngFor="let image of images; let i = index">
     <table>
       <td>
         <tr>

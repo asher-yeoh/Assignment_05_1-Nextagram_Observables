@@ -2,7 +2,13 @@
   <a routerLink="/">
     <button id="home-button">Return to Home</button>
   </a>
+  <a routerLink="/users/{{ username }}/{{ id }}/">
+    <button id="photo-gallery-button">Return to Profile Page</button>
+  </a>
 </div>
-<div id="profile-page-title">
-  <h2>User's Edit Profile Page</h2>
+<div class="nav-page-title">
+  <h2>{{ username }}'s Edit Profile Page</h2>
+</div>
+<div class="page-content-title">
+  <h3>{{ username }}'s Edit Profile Page</h3>
 </div>

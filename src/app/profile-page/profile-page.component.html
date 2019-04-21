@@ -1,0 +1,30 @@
+<div>
+  <a routerLink="/">
+    <button id="home-button">Return to Home</button>
+  </a>
+  <a routerLink="/users/{{ username }}/{{ id }}/">
+    <button id="photo-gallery-button">Return to Photo Gallery</button>
+  </a>
+</div>
+<div class="nav-page-title">
+  <!-- <a routerLink="/users/{{ username}}/{{ id }}/profiles/edit" > -->
+  <a routerLink="/users/ryanG/2/profiles/edit" >
+    <h2>Edit {{ username }}'s Profile Page</h2>
+  </a>
+</div>
+<div class="page-content-title">
+  <h3>{{ username }}'s Profile Page</h3>
+</div>
+<!-- <div id="photo-gallery">
+  <div id="photo-box" *ngFor="let image of images; let i = index">
+    <table>
+      <td>
+        <tr>
+          <td>
+            <a routerLink="/users/{{ username}}/{{ id }}/images/{{ i }}" ><img src="{{ image }}" /></a>
+          </td>
+        </tr>
+      </td>
+    </table>
+  </div>
+</div> -->

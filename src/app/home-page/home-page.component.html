@@ -6,13 +6,18 @@
     <table>
       <td id="profile-pic">
         <tr>
-          <td><img src="{{ user.profileImage }}" /></td>
+          <td id="user-content">
+            <a routerLink="/users/{{ user.username }}/{{ user.id }}" >
+              <img src="{{ user.profileImage }}" />
+            </a>
+          </td>
+          <!-- <td><img src="{{ user.profileImage }}" /></td> -->
         </tr>
       </td>
       <td>
         <tr>
           <td id="user-label">UserID: </td>
-          <td id="user-content"><a routerLink="/users/{{ user.username }}/{{ user.id }}" >{{ user.id }}</a></td>
+          <td id="user-content"><{{ user.id }}</td>
         </tr>
         <tr>
           <td id="user-label">Username: </td>

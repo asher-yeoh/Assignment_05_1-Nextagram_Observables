@@ -6,14 +6,14 @@
     <button id="photo-gallery-button">Return to Photo Gallery</button>
   </a>
 </div>
-<div id="profile-page-title">
+<div class="nav-page-title">
   <h2>{{ username }}'s Photo Info</h2>
 </div>
-<div id="photo-gallery-title">
-  <h3>{{ username }}</h3>
+<div class="page-content-title">
+  <h3>{{ username }}'s Photo</h3>
 </div>
-<div id="photo-gallery">
-  <div id="photo-box" *ngFor="let currentImage of currentImages; let i = index">
+<div class="display-card">
+  <div class="display-box" *ngFor="let currentImage of currentImages; let i = index">
     <table>
       <td>
         <tr>

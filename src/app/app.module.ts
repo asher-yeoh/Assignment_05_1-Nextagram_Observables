@@ -9,6 +9,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ImagePageComponent } from './image-page/image-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ImagePageComponent } from './image-page/image-page.component';
     UserProfileComponent,
     HomePageComponent,
     EditProfileComponent,
-    ImagePageComponent
+    ImagePageComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
