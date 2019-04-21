@@ -10,12 +10,7 @@ const imageUrl = 'https://insta.nextacademy.com/api/v1/images/?userId='
 })
 export class ImageService {
 
-  comments = new BehaviorSubject<string[]>([
-    'Comment A',
-    'Comment B',
-    'Comment C',
-    'Comment D',
-])
+  comments = new BehaviorSubject<string[]>([])
 
   constructor(private http: HttpClient) { }
 

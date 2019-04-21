@@ -1,6 +1,6 @@
 <div>
   <a routerLink="/users/{{ username }}/{{ id }}/">
-    <button id="home-button">Return to Profile PAge</button>
+    <button id="home-button">Return to Profile Page</button>
   </a>
 </div>
 <div id="profile-page-title">
@@ -24,18 +24,21 @@
             <span id="like-counter">{{ currentImage.like }}</span>
           </td>
         </tr>
-        <!-- <tr>
+        <tr>
           <td class="feature-box">
             <ul>
-              <li *ngFor='let imageBoxComment of imageBox.comments'>{{ imageBoxComment }}</li>
+              <li *ngFor='let comment of comments'>
+                <span>Author</span>
+                <p>{{ comment.commentBox }}</p>
+              </li>
             </ul>
             <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
               <span><label>Comment:</label></span>
               <span><input type="text" formControlName="commentBox"/></span>
-              <span><input type="submit"/></span>
+              <span><input id="submit" type="submit"/></span>
             </form>
           </td>
-        </tr> -->
+        </tr>
       </td>
     </table>
   </div>
