@@ -3,11 +3,6 @@ import { ImageService } from '../image.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-interface ImageBox {
-  image: string
-  like: number
-}
-
 @Component({
   selector: 'app-image-page',
   templateUrl: './image-page.component.html',
@@ -16,14 +11,14 @@ interface ImageBox {
 export class ImagePageComponent implements OnInit {
   images: string[] = []
 
-  currentImages: ImageBox[] = []
-
   comments = []
 
   id: number
   username: string
   imageIndex: number
-  
+
+  currentImageUrl: string
+  currentLike: number
   
   commentForm = new FormGroup({
     commentBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
@@ -38,22 +33,20 @@ export class ImagePageComponent implements OnInit {
   ngOnInit() {
     this.imageService.getImages(this.id).subscribe(response => {
       this.images = response as string[]
-
-        this.currentImages.push({
-          'image': this.images[this.imageIndex],
-          'like': 0,
-
-        })
-
+      
+        this.currentImageUrl = this.images[this.imageIndex]
+        this.currentLike = 0
     })
+
+    
 
     this.imageService.getComments().subscribe(comments => {
       this.comments = comments
     })
   }
 
-  likeIncrease(i) {
-    this.currentImages[i].like += 1
+  likeIncrease() {
+    this.currentLike += 1
   }
 
   onSubmit() {

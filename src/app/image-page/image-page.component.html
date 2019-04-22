@@ -1,9 +1,9 @@
 <div>
   <a routerLink="/">
-    <button id="home-button">Return to Home</button>
+    <button id="home-button" (click)="calculateLike()">Return to Home</button>
   </a>
   <a routerLink="/users/{{ username }}/{{ id }}/">
-    <button id="photo-gallery-button">Return to Photo Gallery</button>
+    <button id="photo-gallery-button" (click)="calculateLike()">Return to Photo Gallery</button>
   </a>
 </div>
 <div class="nav-page-title">
@@ -13,18 +13,18 @@
   <h3>{{ username }}'s Photo</h3>
 </div>
 <div class="display-card">
-  <div class="display-box" *ngFor="let currentImage of currentImages; let i = index">
+  <div class="display-box">
     <table>
       <td>
         <tr>
           <td>
-            <img src="{{ currentImage.image }}" />
+            <img src="{{ currentImageUrl }}" />
           </td>
         </tr>
         <tr>
           <td class="feature-box">
-            <button id="like-icon" (click)="likeIncrease(i)"></button>
-            <span id="like-counter">{{ currentImage.like }}</span>
+            <button id="like-icon" (click)="likeIncrease()"></button>
+            <span id="like-counter">{{ currentLike }}</span>
           </td>
         </tr>
         <tr>
@@ -46,5 +46,3 @@
     </table>
   </div>
 </div>
-
-
