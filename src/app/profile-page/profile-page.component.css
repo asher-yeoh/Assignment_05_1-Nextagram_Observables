@@ -16,15 +16,45 @@ p {
     margin-top: 0px;
 }
 
-.feature-box {
-    max-width: 400px;
-    text-align: justify;
-    overflow-wrap: break-word;
+table {
+    height: 150px;
 }
 
-#like-counter {
-    font-family: Abel;
-    font-size: small;
-    color: #FF9E9D;
-    vertical-align: super;
+th {
+    border-style: inset;
+    background-color: black;
+    color: whitesmoke;
+}
+
+td {
+    border-style: outset;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    vertical-align: middle;    
+}
+
+a {
+    font-weight: inherit;
+    text-decoration: initial;
+}
+
+#user-profile {
+    margin: 10px;
+}
+
+#profile-pic {
+    display: contents;
+    text-align: center;
+}
+
+#user-label {
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+#user-content {
+    width: 150px;
 }

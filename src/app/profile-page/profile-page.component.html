@@ -15,16 +15,46 @@
 <div class="page-content-title">
   <h3>{{ username }}'s Profile Page</h3>
 </div>
-<!-- <div id="photo-gallery">
-  <div id="photo-box" *ngFor="let image of images; let i = index">
+<div class="display-card">
+  <div id="user-profile">
     <table>
+      <td id="profile-pic">
+        <tr>
+          <td id="user-content">
+            <img src="{{ currentProfileImage }}" />
+          </td>
+        </tr>
+      </td>
       <td>
         <tr>
-          <td>
-            <a routerLink="/users/{{ username}}/{{ id }}/images/{{ i }}" ><img src="{{ image }}" /></a>
-          </td>
+          <td id="user-label">UserID: </td>
+          <td id="user-content">{{ currentId }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Username: </td>
+          <td id="user-content">{{ currentUsername }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Name: </td>
+          <td id="user-content">{{ currentName }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Description: </td>
+          <td id="user-content">{{ currentDescription }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Blog Link: </td>
+          <td id="user-content">{{ currentBlogLink }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Facebook Link: </td>
+          <td id="user-content">{{ currentFacebookLink }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Email: </td>
+          <td id="user-content">{{ currentEmail }}</td>
         </tr>
       </td>
     </table>
   </div>
-</div> -->
+</div>
