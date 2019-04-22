@@ -3,12 +3,91 @@
     <button id="home-button">Return to Home</button>
   </a>
   <a routerLink="/users/{{ username }}/{{ id }}/">
-    <button id="photo-gallery-button">Return to Profile Page</button>
+    <button id="photo-gallery-button" (click)="calculateLike()">Return to Photo Gallery</button>
   </a>
 </div>
 <div class="nav-page-title">
-  <h2>{{ username }}'s Edit Profile Page</h2>
+  <a routerLink="/users/{{ username}}/{{ id }}/profiles">
+    <h2>Return to {{ username }}'s Profile Page</h2>
+  </a>
 </div>
 <div class="page-content-title">
   <h3>{{ username }}'s Edit Profile Page</h3>
 </div>
+<div class="display-card">
+  <div id="user-profile">
+    <table>
+      <td id="profile-pic">
+        <tr>
+          <td id="user-content">
+            <img src="{{ currentProfileImage }}" />
+          </td>
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <td id="user-label">UserID: </td>
+          <td id="user-content">{{ currentId }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Username: </td>
+          <td id="user-content">{{ currentUsername }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Name: </td>
+          <td id="user-content">{{ name }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Description: </td>
+          <td id="user-content">{{ description }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Blog Link: </td>
+          <td id="user-content">{{ blogLink }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Facebook Link: </td>
+          <td id="user-content">{{ facebookLink }}</td>
+        </tr>
+        <tr>
+          <td id="user-label">Email: </td>
+          <td id="user-content">{{ email }}</td>
+        </tr>
+      </td>
+    </table>
+  </div>
+  <div id="user-profile">
+    <table>
+      <td id="edit-profile-title">
+        <tr>
+          <td id="user-content">
+            Edit Profile Form
+          </td>
+        </tr>
+      </td>
+      <td>
+        <!-- <tr> -->
+          <form id="form" [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+            <span><label>Name:</label></span>
+            <span><input class="input-box" type="text" formControlName="nameBox"/></span>
+            <br>
+            <span><label>Description:</label></span>
+            <span><input class="input-box" type="text" formControlName="descriptionBox"/></span>
+            <br>
+            <span><label>Blog Link:</label></span>
+            <span><input class="input-box" type="text" formControlName="blogLinkBox"/></span>
+            <br>
+            <span><label>Facebook Link:</label></span>
+            <span><input class="input-box" type="text" formControlName="facebookLinkBox"/></span>
+            <br>
+            <span><label>Email:</label></span>
+            <span><input class="input-box" type="email:" formControlName="emailBox"/></span>
+            <br>
+            <span><input class="submit-button" id="submit" type="submit"/></span>
+          </form>
+        <!-- </tr> -->
+      </td>
+    </table>
+  </div>
+</div>
+

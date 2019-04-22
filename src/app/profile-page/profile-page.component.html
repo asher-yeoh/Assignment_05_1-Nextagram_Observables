@@ -7,9 +7,8 @@
   </a>
 </div>
 <div class="nav-page-title">
-  <!-- <a routerLink="/users/{{ username}}/{{ id }}/profiles/edit" > -->
-  <a routerLink="/users/ryanG/2/profiles/edit" >
-    <h2>Edit {{ username }}'s Profile Page</h2>
+  <a routerLink="/users/{{ username}}/{{ id }}/profiles/edit" >
+    <h2>Edit Profile Page</h2>
   </a>
 </div>
 <div class="page-content-title">
@@ -36,23 +35,23 @@
         </tr>
         <tr>
           <td id="user-label">Name: </td>
-          <td id="user-content">{{ currentName }}</td>
+          <td id="user-content">{{ name }}</td>
         </tr>
         <tr>
           <td id="user-label">Description: </td>
-          <td id="user-content">{{ currentDescription }}</td>
+          <td id="user-content">{{ description }}</td>
         </tr>
         <tr>
           <td id="user-label">Blog Link: </td>
-          <td id="user-content">{{ currentBlogLink }}</td>
+          <td id="user-content">{{ blogLink }}</td>
         </tr>
         <tr>
           <td id="user-label">Facebook Link: </td>
-          <td id="user-content">{{ currentFacebookLink }}</td>
+          <td id="user-content">{{ facebookLink }}</td>
         </tr>
         <tr>
           <td id="user-label">Email: </td>
-          <td id="user-content">{{ currentEmail }}</td>
+          <td id="user-content">{{ email }}</td>
         </tr>
       </td>
     </table>

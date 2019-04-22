@@ -1,10 +1,79 @@
 span {
     margin-left: 5px;
+    font-weight: bold;
+}
+
+
+ul {
+    list-style-position: inside;
+    padding: 0 5px;
+    color: whitesmoke;
+}
+
+table {
+    height: 150px;
+}
+
+th {
+    border-style: inset;
+}
+
+td {
+    border-style: outset;
 }
 
 img {
-    height: 400px;
-    width: 400px;
-    vertical-align: middle;
-    border-style: outset;
+    height: 200px;
+    width: 200px;
+    vertical-align: middle;    
+}
+
+a {
+    font-weight: inherit;
+    text-decoration: initial;
+}
+
+#user-profile {
+    margin: 10px;
+}
+
+#profile-pic {
+    display: contents;
+    text-align: center;
+}
+
+#user-label {
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+#user-content {
+    width: 150px;
+}
+
+#edit-profile-title {
+    font-weight: bold;
+    color: whitesmoke;
+    height: 200px;
+    display: contents;
+    text-align: center;
+}
+
+#edit-profile-title tbody {
+    background-color: black;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    min-width: 300px;
+}
+
+.input-box {
+    width: 100%;
+}
+
+.submit-button {
+    float: right;
 }

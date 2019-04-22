@@ -10,22 +10,34 @@ const imageUrl = 'https://insta.nextacademy.com/api/v1/images/?userId='
 })
 export class ImageService {
 
+  likes = new BehaviorSubject<number>(0)
   comments = new BehaviorSubject<string[]>([])
-
+  
   constructor(private http: HttpClient) { }
 
   getImages(id: number) {
     return this.http.get(imageUrl + `${id}`)
   }
 
-  addComment(newComment){
+  getLikes() {
+    return this.likes
+  }
+
+  getComments() {
+    return this.comments
+  }
+
+  // addLikes() {
+  //   let tempLikes = this.likes
+  //   tempLikes = tempLikes + 1
+
+  // }
+
+  addComment(newComment) {
     let tempComment = this.comments.getValue()
     tempComment.push(newComment)
     this.comments.next(tempComment)
   }
 
-  getComments(){
-    return this.comments
-  }
 
 }

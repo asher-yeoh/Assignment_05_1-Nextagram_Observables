@@ -38,6 +38,10 @@ export class ImagePageComponent implements OnInit {
         this.currentLike = 0
     })
 
+    // this.imageService.getComments().subscribe(comments => {
+    //   this.likes = likes
+    // })
+
     this.imageService.getComments().subscribe(comments => {
       this.comments = comments
     })
