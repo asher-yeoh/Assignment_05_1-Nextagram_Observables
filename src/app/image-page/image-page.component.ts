@@ -17,8 +17,6 @@ interface Likes {
 export class ImagePageComponent implements OnInit {
   images: string[] = []
 
-  // likes: number = null
-  // likes = {}
   likes: Likes[] =[]
   comments: string[] = null
 

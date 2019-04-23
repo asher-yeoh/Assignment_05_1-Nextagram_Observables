@@ -16,8 +16,6 @@ const imageUrl = 'https://insta.nextacademy.com/api/v1/images/?userId='
 })
 export class ImageService {
 
-  // likes = new BehaviorSubject<number>(0)
-
   likes = new BehaviorSubject<Likes[]>([{
     id: 0,
     imageIndex: 0,
@@ -39,10 +37,6 @@ export class ImageService {
   getComments() {
     return this.comments
   }
-
-  // addLikes(newLikes) {
-  //   this.likes.next(newLikes)
-  // }
 
   addComment(newComment) {
     let tempComment = this.comments.getValue()
