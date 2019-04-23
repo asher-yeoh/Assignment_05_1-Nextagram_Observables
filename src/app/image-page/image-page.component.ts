@@ -11,7 +11,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ImagePageComponent implements OnInit {
   images: string[] = []
 
-  likes: number = null
+  // likes: number = null
+  likes = {}
   comments: string[] = null
 
   id: number
@@ -19,6 +20,7 @@ export class ImagePageComponent implements OnInit {
   imageIndex: number
 
   currentImageUrl: string
+  currentLike: number = 10
   
   commentForm = new FormGroup({
     commentBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
@@ -35,6 +37,18 @@ export class ImagePageComponent implements OnInit {
       this.images = response as string[]
       
         this.currentImageUrl = this.images[this.imageIndex]
+
+        // for (let index in this.likes) {
+        //   if (this.likes[index].id !== this.id && this.likes[index].imageIndex == !this.imageIndex) {
+        //     this.currentLike = this.likes[index].likeCounter
+        //   }
+        // }
+
+        for (let index in this.likes) {
+          if (this.likes[index].id == this.id && this.likes[index].imageIndex == this.imageIndex) {
+            this.currentLike = this.likes[index].likeCounter
+          }
+        }
     })
 
     this.imageService.getLikes().subscribe(likes => {
@@ -47,8 +61,15 @@ export class ImagePageComponent implements OnInit {
   }
 
   likeIncrease() {
-    this.likes += 1
-    this.imageService.addLikes(this.likes)
+    this.currentLike += 1
+
+    for (let index in this.likes) {
+      if (this.likes[index].id == this.id && this.likes[index].imageIndex == this.imageIndex) {
+        this.likes[index].likeCounter = this.currentLike
+      }
+    }
+
+    // this.imageService.addLikes(this.currentLike)
   }
 
   onSubmit() {

@@ -55,7 +55,7 @@ img {
 
 #like-counter {
     font-family: Abel;
-    font-size: small;
+    /* font-size: small; */
     color: #FF9E9D;
     vertical-align: super;
 }

@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject } from 'rxjs';
 
+interface Likes {
+  id: number
+  imageIndex: number
+  likeCounter: number
+}
+
 const imageUrl = 'https://insta.nextacademy.com/api/v1/images/?userId='
 // const imageUrl = 'https://tranquil-beach-87956.herokuapp.com/api/v1/images?userId='
 
@@ -10,7 +16,14 @@ const imageUrl = 'https://insta.nextacademy.com/api/v1/images/?userId='
 })
 export class ImageService {
 
-  likes = new BehaviorSubject<number>(0)
+  // likes = new BehaviorSubject<number>(0)
+
+  likes = new BehaviorSubject<Likes[]>([{
+    id: 3,
+    imageIndex: 0,
+    likeCounter: 50,
+  }])
+
   comments = new BehaviorSubject<string[]>([])
   
   constructor(private http: HttpClient) { }
@@ -27,9 +40,9 @@ export class ImageService {
     return this.comments
   }
 
-  addLikes(newLikes) {
-    this.likes.next(newLikes)
-  }
+  // addLikes(newLikes) {
+  //   this.likes.next(newLikes)
+  // }
 
   addComment(newComment) {
     let tempComment = this.comments.getValue()

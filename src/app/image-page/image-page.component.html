@@ -24,7 +24,9 @@
         <tr>
           <td class="feature-box">
             <button id="like-icon" (click)="likeIncrease()"></button>
-            <span id="like-counter">{{ likes }}</span>
+            <!-- <span id="like-counter">{{ likes }}</span> -->
+            <!-- <span id="like-counter">{{ likes.likeCounter }}</span> -->
+            <span id="like-counter">{{ currentLike }}</span>
           </td>
         </tr>
         <tr>
@@ -46,3 +48,9 @@
     </table>
   </div>
 </div>
+
+<ul>
+  <li *ngFor="let like of likes">
+    {{ like.id }} - {{ like.imageIndex }} - {{ like.likeCounter }}
+  </li>
+</ul>
