@@ -6,6 +6,7 @@ interface ImageProperties {
   id: number
   imageIndex: number
   likeCounter: number
+  commentBox: string[]
 }
 
 const imageUrl = 'https://insta.nextacademy.com/api/v1/images/?userId='
@@ -20,9 +21,10 @@ export class ImageService {
     id: 0,
     imageIndex: 0,
     likeCounter: 0,
+    commentBox: []
   }])
 
-  comments = new BehaviorSubject<string[]>([])
+  // comments = new BehaviorSubject<string[]>([])
   
   constructor(private http: HttpClient) { }
 
@@ -34,13 +36,43 @@ export class ImageService {
     return this.imageProperty
   }
 
-  getComments() {
-    return this.comments
+  // getComments() {
+  //   return this.imageProperty[0].commentBox
+  // }
+
+  // addComment(newComment) {
+  //   // let tempComment = this.comments.getValue()
+  //   let tempComment = this.imageProperty[0].commentBox.getValue()
+  //   tempComment.push(newComment)
+  //   this.imageProperty[0].commentBox.next(tempComment)
+
+  //   // this.getComments(0)
+   
+  // }
+
+  addComment(newComment, currentId, currentImageIndex) {
+
+    // let tempImageProperty = this.imageProperty[0].getValue()
+    // debugger
+    // console.log(this)
+
+    // window.alert(Object.keys(this.imageProperty).length)
+
+    // let tempImageProperty = this.imageProperty.getValue()[index]
+    // tempImageProperty.commentBox.push(newComment)
+    // this.imageProperty[index].next(tempImageProperty)
+
+    let updatedArray = []
+
+    for(let property of this.imageProperty.getValue()) {
+      if (property.id === currentId && property.imageIndex === currentImageIndex) {
+        property.commentBox.push(newComment) 
+      }
+      updatedArray.push(property)
+    }
+    
+    this.imageProperty.next(updatedArray)
+
   }
 
-  addComment(newComment) {
-    let tempComment = this.comments.getValue()
-    tempComment.push(newComment)
-    this.comments.next(tempComment)
-  }
 }

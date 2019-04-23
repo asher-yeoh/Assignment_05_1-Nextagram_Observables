@@ -7,6 +7,7 @@ interface ImageProperties {
   id: number
   imageIndex: number
   likeCounter: number
+  commentBox: string[]
 }
 
 @Component({
@@ -18,17 +19,19 @@ export class ImagePageComponent implements OnInit {
   images: string[] = []
 
   imageProperty: ImageProperties[] =[]
-  comments: string[] = null
+  // comments: string[] = null
 
   id: number
   username: string
   imageIndex: number
 
+  currentIndex: number
   currentImageUrl: string
   currentLike: number
+  currentComments: string[] = null
   
   commentForm = new FormGroup({
-    commentBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
+    commentField: new FormControl("Write comment...", [Validators.required, Validators.minLength(1)]),
   })
   
   constructor(private imageService: ImageService, private route: ActivatedRoute) {
@@ -56,12 +59,15 @@ export class ImagePageComponent implements OnInit {
             'id': this.id,
             'imageIndex': this.imageIndex,
             'likeCounter': 0,
+            'commentBox': []
           })
         }
           
         for (let index in this.imageProperty) {
           if (this.imageProperty[index].id == this.id && this.imageProperty[index].imageIndex == this.imageIndex) {
+            this.currentIndex = parseInt(index)
             this.currentLike = this.imageProperty[index].likeCounter
+            this.currentComments = this.imageProperty[index].commentBox
           }
         }
     })
@@ -70,12 +76,12 @@ export class ImagePageComponent implements OnInit {
       this.imageProperty = imageProperty as ImageProperties[]
     })
 
-    this.imageService.getComments().subscribe(comments => {
-      this.comments = comments
-    })
+    // this.imageService.getComments().subscribe(comments => {
+    //   this.comments = comments
+    // })
   }
 
-  likeIncrease() {
+  addLike() {
     this.currentLike += 1
 
     for (let index in this.imageProperty) {
@@ -87,9 +93,13 @@ export class ImagePageComponent implements OnInit {
 
   onSubmit() {
     if(!this.commentForm.invalid){
-      this.imageService.addComment(this.commentForm.value)
+      this.imageService.addComment(this.commentForm.value.commentField, this.id, this.imageIndex)
+      // this.imageService.addComment('testing', this.id, this.imageIndex)
+      debugger
+      console.log(this)
     }
-    this.commentForm.reset()
+    this.commentForm.reset() 
   }
 
 }
+
