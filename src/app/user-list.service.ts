@@ -2,6 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject } from 'rxjs'
 
+interface UserProfiles {
+  id: number
+  name: string
+  description: string
+  blogLink: string
+  facebookLink: string
+  email: string
+}
+
 const userUrl = 'https://insta.nextacademy.com/api/v1/users/'
 // const userUrl = 'https://tranquil-beach-87956.herokuapp.com/api/v1/users/'
 
@@ -11,13 +20,22 @@ const userUrl = 'https://insta.nextacademy.com/api/v1/users/'
 })
 export class UserListService {
 
-  name = new BehaviorSubject<string>('Spy Fox')
-  description = new BehaviorSubject<string>('Special Agent')
-  blogLink = new BehaviorSubject<string>('www.secretmissionblog.com/spy_fox')
-  facebookLink = new BehaviorSubject<string>('www.facebook.com/mynameisnotspyfox')
-  email = new BehaviorSubject<string>('spy.fox@youcannotseeme.com')
+  userProfile = new BehaviorSubject<UserProfiles[]>([{
+    id: 6,
+    name: '-',
+    description: '-',
+    blogLink: '-',
+    facebookLink: '-',
+    email: '-',
+  }])
 
-  editedProfile = new BehaviorSubject<string[]>([])
+  // name = new BehaviorSubject<string>('Spy Fox')
+  // description = new BehaviorSubject<string>('Special Agent')
+  // blogLink = new BehaviorSubject<string>('www.secretmissionblog.com/spy_fox')
+  // facebookLink = new BehaviorSubject<string>('www.facebook.com/mynameisnotspyfox')
+  // email = new BehaviorSubject<string>('spy.fox@youcannotseeme.com')
+
+  // editedProfile = new BehaviorSubject<string[]>([])
 
   constructor(private http: HttpClient) {}
 
@@ -25,47 +43,34 @@ export class UserListService {
     return this.http.get(userUrl)
   }
 
-  getName() {
-    return this.name
+  getUserProfile() {
+    return this.userProfile
   }
 
-  getDescription() {
-    return this.description
-  }
+  submitEditProfileForm(currentId, newName, newDescription, newBlogLink, newFacebookLink, newEmail) {
+    // submitEditProfileForm(newNameBox){
+    // let updatedUserProfile = []
 
-  getBlogLink() {
-    return this.blogLink
-  }
+    const updatedUserProfile = this.userProfile.getValue()
+    // debugger
+    // console.log(this)
 
-  getFacebookLink() {
-    return this.facebookLink
-  }
+    for(let profile of updatedUserProfile) {
+      if (profile.id === currentId) {
 
-  getEmail() {
-    return this.email
-  }
-
-  submitEditProfileForm(newEditProfileForm) {
- 
-    if (newEditProfileForm.nameBox.length != 0) {
-      this.name.next(newEditProfileForm.nameBox)
+        profile.name = newName
+        profile.description = newDescription
+        profile.blogLink = newBlogLink
+        profile.facebookLink = newFacebookLink
+        profile.email = newEmail
+      }
+      // updatedUserProfile.push(profile)
     }
-
-    if (newEditProfileForm.descriptionBox.length != 0) {
-      this.description.next(newEditProfileForm.descriptionBox)
-    }
-
-    if (newEditProfileForm.blogLinkBox.length != 0) {
-      this.blogLink.next(newEditProfileForm.blogLinkBox)
-    }
-
-    if (newEditProfileForm.facebookLinkBox.length != 0) {
-      this.facebookLink.next(newEditProfileForm.facebookLinkBox)
-    }
-
-    if (newEditProfileForm.emailBox.length != 0) {
-      this.email.next(newEditProfileForm.emailBox)
-    }
+    
+    this.userProfile.next(updatedUserProfile)
+    debugger
+    console.log(this)
+    
    
     // this.name.next(newEditProfileForm.nameBox)
     // this.description.next(newEditProfileForm.descriptionBox)

@@ -35,23 +35,23 @@
         </tr>
         <tr>
           <td id="user-label">Name: </td>
-          <td id="user-content">{{ name }}</td>
+          <td id="user-content">{{ currentName }}</td>
         </tr>
         <tr>
           <td id="user-label">Description: </td>
-          <td id="user-content">{{ description }}</td>
+          <td id="user-content">{{ currentDescription }}</td>
         </tr>
         <tr>
           <td id="user-label">Blog Link: </td>
-          <td id="user-content">{{ blogLink }}</td>
+          <td id="user-content">{{ currentBlogLink }}</td>
         </tr>
         <tr>
           <td id="user-label">Facebook Link: </td>
-          <td id="user-content">{{ facebookLink }}</td>
+          <td id="user-content">{{ currentFacebookLink }}</td>
         </tr>
         <tr>
           <td id="user-label">Email: </td>
-          <td id="user-content">{{ email }}</td>
+          <td id="user-content">{{ currentEmail }}</td>
         </tr>
       </td>
     </table>
@@ -69,23 +69,24 @@
         <!-- <tr> -->
           <form id="edit-profile-form" [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
             <span><label>Name:</label></span>
-            <span><input class="input-box" type="text" formControlName="nameBox"/></span>
+            <span><input class="input-box" type="text" formControlName="nameField"/></span>
             <br>
             <span><label>Description:</label></span>
-            <span><input class="input-box" type="text" formControlName="descriptionBox"/></span>
+            <span><input class="input-box" type="text" formControlName="descriptionField"/></span>
             <br>
             <span><label>Blog Link:</label></span>
-            <span><input class="input-box" type="text" formControlName="blogLinkBox"/></span>
+            <span><input class="input-box" type="text" formControlName="blogLinkField"/></span>
             <br>
             <span><label>Facebook Link:</label></span>
-            <span><input class="input-box" type="text" formControlName="facebookLinkBox"/></span>
+            <span><input class="input-box" type="text" formControlName="facebookLinkField"/></span>
             <br>
             <span><label>Email:</label></span>
-            <span><input class="input-box" type="email:" formControlName="emailBox"/></span>
+            <span><input class="input-box" type="email:" formControlName="emailField"/></span>
             <br>
             <span><input class="submit-button" id="submit" type="submit"/></span>
           </form>
         <!-- </tr> -->
+        <button (click)="onSubmit()">Test</button>
       </td>
     </table>
   </div>

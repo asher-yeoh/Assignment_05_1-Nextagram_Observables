@@ -89,7 +89,7 @@ export class ImagePageComponent implements OnInit {
 
   onSubmit() {
     if(!this.commentForm.invalid){
-      this.imageService.addComment(this.commentForm.value.commentField, this.id, this.imageIndex)
+      this.imageService.addComment(this.id, this.imageIndex, this.commentForm.value.commentField)
     }
     this.commentForm.reset() 
   }

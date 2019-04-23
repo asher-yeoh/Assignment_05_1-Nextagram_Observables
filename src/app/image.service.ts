@@ -34,18 +34,18 @@ export class ImageService {
     return this.imageProperty
   }
 
-  addComment(newComment, currentId, currentImageIndex) {
+  addComment(currentId, currentImageIndex, newComment) {
 
-    let updatedArray = []
+    let updatedImageProperty = []
 
     for(let property of this.imageProperty.getValue()) {
       if (property.id === currentId && property.imageIndex === currentImageIndex) {
         property.commentBox.push(newComment) 
       }
-      updatedArray.push(property)
+      updatedImageProperty.push(property)
     }
     
-    this.imageProperty.next(updatedArray)
+    this.imageProperty.next(updatedImageProperty)
 
   }
 
