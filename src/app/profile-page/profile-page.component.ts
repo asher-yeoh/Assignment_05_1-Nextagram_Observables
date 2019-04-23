@@ -69,11 +69,11 @@ export class ProfilePageComponent implements OnInit {
       if (flag) {
         this.userProfile.push({
           'id': this.id,
-          'name': 'a',
-          'description': 'a',
-          'blogLink': 'a',
-          'facebookLink': 'a',
-          'email': 'a@gmail.com',
+          'name': '-',
+          'description': '-',
+          'blogLink': '-',
+          'facebookLink': '-',
+          'email': '-',
         })
       }
         

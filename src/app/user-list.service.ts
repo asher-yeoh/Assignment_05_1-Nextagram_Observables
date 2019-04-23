@@ -21,7 +21,7 @@ const userUrl = 'https://insta.nextacademy.com/api/v1/users/'
 export class UserListService {
 
   userProfile = new BehaviorSubject<UserProfiles[]>([{
-    id: 6,
+    id: 0,
     name: '-',
     description: '-',
     blogLink: '-',
@@ -71,12 +71,6 @@ export class UserListService {
     debugger
     console.log(this)
     
-   
-    // this.name.next(newEditProfileForm.nameBox)
-    // this.description.next(newEditProfileForm.descriptionBox)
-    // this.blogLink.next(newEditProfileForm.blogLinkBox)
-    // this.facebookLink.next(newEditProfileForm.facebookLinkBox)
-    // this.email.next(newEditProfileForm.emailBox)
   }
 
 }
