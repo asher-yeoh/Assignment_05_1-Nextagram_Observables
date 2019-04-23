@@ -3,7 +3,7 @@ import { ImageService } from '../image.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-interface Likes {
+interface ImageProperties {
   id: number
   imageIndex: number
   likeCounter: number
@@ -17,7 +17,7 @@ interface Likes {
 export class ImagePageComponent implements OnInit {
   images: string[] = []
 
-  likes: Likes[] =[]
+  imageProperty: ImageProperties[] =[]
   comments: string[] = null
 
   id: number
@@ -45,29 +45,29 @@ export class ImagePageComponent implements OnInit {
         
         let flag = true
 
-        for (let index in this.likes) {
-          if (this.likes[index].id == this.id && this.likes[index].imageIndex == this.imageIndex) {
+        for (let index in this.imageProperty) {
+          if (this.imageProperty[index].id == this.id && this.imageProperty[index].imageIndex == this.imageIndex) {
             flag =  false
           }
         }
 
         if (flag) {
-          this.likes.push({
+          this.imageProperty.push({
             'id': this.id,
             'imageIndex': this.imageIndex,
             'likeCounter': 0,
           })
         }
           
-        for (let index in this.likes) {
-          if (this.likes[index].id == this.id && this.likes[index].imageIndex == this.imageIndex) {
-            this.currentLike = this.likes[index].likeCounter
+        for (let index in this.imageProperty) {
+          if (this.imageProperty[index].id == this.id && this.imageProperty[index].imageIndex == this.imageIndex) {
+            this.currentLike = this.imageProperty[index].likeCounter
           }
         }
     })
 
-    this.imageService.getLikes().subscribe(likes => {
-      this.likes = likes as Likes[]
+    this.imageService.getImageProperty().subscribe(imageProperty => {
+      this.imageProperty = imageProperty as ImageProperties[]
     })
 
     this.imageService.getComments().subscribe(comments => {
@@ -78,9 +78,9 @@ export class ImagePageComponent implements OnInit {
   likeIncrease() {
     this.currentLike += 1
 
-    for (let index in this.likes) {
-      if (this.likes[index].id == this.id && this.likes[index].imageIndex == this.imageIndex) {
-        this.likes[index].likeCounter = this.currentLike
+    for (let index in this.imageProperty) {
+      if (this.imageProperty[index].id == this.id && this.imageProperty[index].imageIndex == this.imageIndex) {
+        this.imageProperty[index].likeCounter = this.currentLike
       }
     }
   }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject } from 'rxjs';
 
-interface Likes {
+interface ImageProperties {
   id: number
   imageIndex: number
   likeCounter: number
@@ -16,7 +16,7 @@ const imageUrl = 'https://insta.nextacademy.com/api/v1/images/?userId='
 })
 export class ImageService {
 
-  likes = new BehaviorSubject<Likes[]>([{
+  imageProperty = new BehaviorSubject<ImageProperties[]>([{
     id: 0,
     imageIndex: 0,
     likeCounter: 0,
@@ -30,8 +30,8 @@ export class ImageService {
     return this.http.get(imageUrl + `${id}`)
   }
 
-  getLikes() {
-    return this.likes
+  getImageProperty() {
+    return this.imageProperty
   }
 
   getComments() {
