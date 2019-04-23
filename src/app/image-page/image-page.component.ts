@@ -19,7 +19,6 @@ export class ImagePageComponent implements OnInit {
   imageIndex: number
 
   currentImageUrl: string
-  // currentLike: number
   
   commentForm = new FormGroup({
     commentBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
@@ -36,7 +35,6 @@ export class ImagePageComponent implements OnInit {
       this.images = response as string[]
       
         this.currentImageUrl = this.images[this.imageIndex]
-        // this.currentLike = this.likes
     })
 
     this.imageService.getLikes().subscribe(likes => {
