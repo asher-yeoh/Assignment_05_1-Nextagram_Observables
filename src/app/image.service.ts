@@ -23,8 +23,6 @@ export class ImageService {
     likeCounter: 0,
     commentBox: []
   }])
-
-  // comments = new BehaviorSubject<string[]>([])
   
   constructor(private http: HttpClient) { }
 
@@ -36,31 +34,7 @@ export class ImageService {
     return this.imageProperty
   }
 
-  // getComments() {
-  //   return this.imageProperty[0].commentBox
-  // }
-
-  // addComment(newComment) {
-  //   // let tempComment = this.comments.getValue()
-  //   let tempComment = this.imageProperty[0].commentBox.getValue()
-  //   tempComment.push(newComment)
-  //   this.imageProperty[0].commentBox.next(tempComment)
-
-  //   // this.getComments(0)
-   
-  // }
-
   addComment(newComment, currentId, currentImageIndex) {
-
-    // let tempImageProperty = this.imageProperty[0].getValue()
-    // debugger
-    // console.log(this)
-
-    // window.alert(Object.keys(this.imageProperty).length)
-
-    // let tempImageProperty = this.imageProperty.getValue()[index]
-    // tempImageProperty.commentBox.push(newComment)
-    // this.imageProperty[index].next(tempImageProperty)
 
     let updatedArray = []
 

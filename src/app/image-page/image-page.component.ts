@@ -19,7 +19,6 @@ export class ImagePageComponent implements OnInit {
   images: string[] = []
 
   imageProperty: ImageProperties[] =[]
-  // comments: string[] = null
 
   id: number
   username: string
@@ -31,7 +30,7 @@ export class ImagePageComponent implements OnInit {
   currentComments: string[] = null
   
   commentForm = new FormGroup({
-    commentField: new FormControl("Write comment...", [Validators.required, Validators.minLength(1)]),
+    commentField: new FormControl("", [Validators.required, Validators.minLength(1)]),
   })
   
   constructor(private imageService: ImageService, private route: ActivatedRoute) {
@@ -76,9 +75,6 @@ export class ImagePageComponent implements OnInit {
       this.imageProperty = imageProperty as ImageProperties[]
     })
 
-    // this.imageService.getComments().subscribe(comments => {
-    //   this.comments = comments
-    // })
   }
 
   addLike() {
@@ -94,9 +90,6 @@ export class ImagePageComponent implements OnInit {
   onSubmit() {
     if(!this.commentForm.invalid){
       this.imageService.addComment(this.commentForm.value.commentField, this.id, this.imageIndex)
-      // this.imageService.addComment('testing', this.id, this.imageIndex)
-      debugger
-      console.log(this)
     }
     this.commentForm.reset() 
   }
