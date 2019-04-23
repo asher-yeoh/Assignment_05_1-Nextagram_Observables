@@ -27,17 +27,13 @@ export class ImageService {
     return this.comments
   }
 
-  // addLikes() {
-  //   let tempLikes = this.likes
-  //   tempLikes = tempLikes + 1
-
-  // }
+  addLikes(newLikes) {
+    this.likes.next(newLikes)
+  }
 
   addComment(newComment) {
     let tempComment = this.comments.getValue()
     tempComment.push(newComment)
     this.comments.next(tempComment)
   }
-
-
 }

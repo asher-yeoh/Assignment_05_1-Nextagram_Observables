@@ -24,7 +24,8 @@
         <tr>
           <td class="feature-box">
             <button id="like-icon" (click)="likeIncrease()"></button>
-            <span id="like-counter">{{ currentLike }}</span>
+            <span id="like-counter">{{ likes }}</span>
+            <!-- <span id="like-counter">{{ currentLike }}</span> -->
           </td>
         </tr>
         <tr>
@@ -35,7 +36,7 @@
                 <p>{{ comment.commentBox }}</p>
               </li>
             </ul>
-            <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+            <form id="edit-profile-form" [formGroup]="commentForm" (ngSubmit)="onSubmit()">
               <span><label>Comment:</label></span>
               <span><input class="input-box" type="text" formControlName="commentBox"/></span>
               <span><input id="submit" type="submit"/></span>

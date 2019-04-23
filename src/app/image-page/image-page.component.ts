@@ -11,14 +11,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ImagePageComponent implements OnInit {
   images: string[] = []
 
-  comments = []
+  likes: number = null
+  comments: string[] = null
 
   id: number
   username: string
   imageIndex: number
 
   currentImageUrl: string
-  currentLike: number
+  // currentLike: number
   
   commentForm = new FormGroup({
     commentBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
@@ -35,12 +36,12 @@ export class ImagePageComponent implements OnInit {
       this.images = response as string[]
       
         this.currentImageUrl = this.images[this.imageIndex]
-        this.currentLike = 0
+        // this.currentLike = this.likes
     })
 
-    // this.imageService.getComments().subscribe(comments => {
-    //   this.likes = likes
-    // })
+    this.imageService.getLikes().subscribe(likes => {
+      this.likes = likes
+    })
 
     this.imageService.getComments().subscribe(comments => {
       this.comments = comments
@@ -48,7 +49,8 @@ export class ImagePageComponent implements OnInit {
   }
 
   likeIncrease() {
-    this.currentLike += 1
+    this.likes += 1
+    this.imageService.addLikes(this.likes)
   }
 
   onSubmit() {

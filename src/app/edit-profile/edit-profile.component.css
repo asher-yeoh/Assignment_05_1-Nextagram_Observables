@@ -63,7 +63,7 @@ a {
     background-color: black;
 }
 
-#form {
+#edit-profile-form {
     display: flex;
     flex-direction: column;
     padding: 10px;
