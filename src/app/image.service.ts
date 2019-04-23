@@ -19,9 +19,9 @@ export class ImageService {
   // likes = new BehaviorSubject<number>(0)
 
   likes = new BehaviorSubject<Likes[]>([{
-    id: 3,
+    id: 0,
     imageIndex: 0,
-    likeCounter: 50,
+    likeCounter: 0,
   }])
 
   comments = new BehaviorSubject<string[]>([])

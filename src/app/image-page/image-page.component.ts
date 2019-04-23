@@ -3,6 +3,12 @@ import { ImageService } from '../image.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+interface Likes {
+  id: number
+  imageIndex: number
+  likeCounter: number
+}
+
 @Component({
   selector: 'app-image-page',
   templateUrl: './image-page.component.html',
@@ -12,7 +18,8 @@ export class ImagePageComponent implements OnInit {
   images: string[] = []
 
   // likes: number = null
-  likes = {}
+  // likes = {}
+  likes: Likes[] =[]
   comments: string[] = null
 
   id: number
@@ -20,7 +27,7 @@ export class ImagePageComponent implements OnInit {
   imageIndex: number
 
   currentImageUrl: string
-  currentLike: number = 10
+  currentLike: number
   
   commentForm = new FormGroup({
     commentBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
@@ -37,13 +44,23 @@ export class ImagePageComponent implements OnInit {
       this.images = response as string[]
       
         this.currentImageUrl = this.images[this.imageIndex]
+        
+        let flag = true
 
-        // for (let index in this.likes) {
-        //   if (this.likes[index].id !== this.id && this.likes[index].imageIndex == !this.imageIndex) {
-        //     this.currentLike = this.likes[index].likeCounter
-        //   }
-        // }
+        for (let index in this.likes) {
+          if (this.likes[index].id == this.id && this.likes[index].imageIndex == this.imageIndex) {
+            flag =  false
+          }
+        }
 
+        if (flag) {
+          this.likes.push({
+            'id': this.id,
+            'imageIndex': this.imageIndex,
+            'likeCounter': 0,
+          })
+        }
+          
         for (let index in this.likes) {
           if (this.likes[index].id == this.id && this.likes[index].imageIndex == this.imageIndex) {
             this.currentLike = this.likes[index].likeCounter
@@ -52,7 +69,7 @@ export class ImagePageComponent implements OnInit {
     })
 
     this.imageService.getLikes().subscribe(likes => {
-      this.likes = likes
+      this.likes = likes as Likes[]
     })
 
     this.imageService.getComments().subscribe(comments => {
@@ -68,8 +85,6 @@ export class ImagePageComponent implements OnInit {
         this.likes[index].likeCounter = this.currentLike
       }
     }
-
-    // this.imageService.addLikes(this.currentLike)
   }
 
   onSubmit() {
