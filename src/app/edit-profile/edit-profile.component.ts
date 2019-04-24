@@ -105,7 +105,6 @@ export class EditProfileComponent implements OnInit {
   onSubmit() {
     if(!this.editProfileForm.invalid){
       this.userListService.submitEditProfileForm(this.currentId, this.editProfileForm.value.nameField, this.editProfileForm.value.descriptionField, this.editProfileForm.value.blogLinkField, this.editProfileForm.value.facebookLinkField, this.editProfileForm.value.emailField)
-      // this.userListService.submitEditProfileForm(this.currentId, 'Spy Fox', 'Agent','fox blog','fox facebook','fox@gmail.com')
     }
 
     this.editProfileForm.reset()
