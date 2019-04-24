@@ -42,16 +42,10 @@ export class EditProfileComponent implements OnInit {
   currentEmail: string
 
   editProfileForm = new FormGroup({
-    // nameBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
-    // descriptionBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
-    // blogLinkBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
-    // facebookLinkBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
-    // emailBox: new FormControl("", [Validators.required, Validators.minLength(1)]),
     nameField: new FormControl(""),
     descriptionField: new FormControl(""),
     blogLinkField: new FormControl(""),
     facebookLinkField: new FormControl(""),
-    // emailField: new FormControl(""),
     emailField: new FormControl("", [Validators.email]),
   })
 
@@ -100,8 +94,7 @@ export class EditProfileComponent implements OnInit {
           this.currentFacebookLink = this.userProfile[index].facebookLink
           this.currentEmail = this.userProfile[index].email
         }
-      }
-      
+      }     
     })
 
     this.userListService.getUserProfile().subscribe(userProfile => {
@@ -110,17 +103,11 @@ export class EditProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    // if(!this.editProfileForm.invalid){
+    if(!this.editProfileForm.invalid){
       this.userListService.submitEditProfileForm(this.currentId, this.editProfileForm.value.nameField, this.editProfileForm.value.descriptionField, this.editProfileForm.value.blogLinkField, this.editProfileForm.value.facebookLinkField, this.editProfileForm.value.emailField)
       // this.userListService.submitEditProfileForm(this.currentId, 'Spy Fox', 'Agent','fox blog','fox facebook','fox@gmail.com')
-    // }
+    }
+
     this.editProfileForm.reset()
   }
-
-  // showInvalidEmailError(){
-  //   if(this.editProfileForm !== null){
-  //     return this.editProfileForm.errors.email
-  //   }
-  //   return true
-  // }
 }

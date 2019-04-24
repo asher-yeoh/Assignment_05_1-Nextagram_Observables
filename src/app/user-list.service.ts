@@ -14,28 +14,12 @@ interface UserProfiles {
 const userUrl = 'https://insta.nextacademy.com/api/v1/users/'
 // const userUrl = 'https://tranquil-beach-87956.herokuapp.com/api/v1/users/'
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class UserListService {
 
-  userProfile = new BehaviorSubject<UserProfiles[]>([{
-    id: 0,
-    name: '-',
-    description: '-',
-    blogLink: '-',
-    facebookLink: '-',
-    email: '-',
-  }])
-
-  // name = new BehaviorSubject<string>('Spy Fox')
-  // description = new BehaviorSubject<string>('Special Agent')
-  // blogLink = new BehaviorSubject<string>('www.secretmissionblog.com/spy_fox')
-  // facebookLink = new BehaviorSubject<string>('www.facebook.com/mynameisnotspyfox')
-  // email = new BehaviorSubject<string>('spy.fox@youcannotseeme.com')
-
-  // editedProfile = new BehaviorSubject<string[]>([])
+  userProfile = new BehaviorSubject<UserProfiles[]>([])
 
   constructor(private http: HttpClient) {}
 
@@ -48,29 +32,20 @@ export class UserListService {
   }
 
   submitEditProfileForm(currentId, newName, newDescription, newBlogLink, newFacebookLink, newEmail) {
-    // submitEditProfileForm(newNameBox){
-    // let updatedUserProfile = []
-
-    const updatedUserProfile = this.userProfile.getValue()
-    // debugger
-    // console.log(this)
-
-    for(let profile of updatedUserProfile) {
+    
+    let updatedUserProfile = []
+   
+    for(let profile of this.userProfile.getValue()) {
       if (profile.id === currentId) {
-
         profile.name = newName
         profile.description = newDescription
         profile.blogLink = newBlogLink
         profile.facebookLink = newFacebookLink
         profile.email = newEmail
       }
-      // updatedUserProfile.push(profile)
+      updatedUserProfile.push(profile)
     }
-    
+  
     this.userProfile.next(updatedUserProfile)
-    debugger
-    console.log(this)
-    
   }
-
 }

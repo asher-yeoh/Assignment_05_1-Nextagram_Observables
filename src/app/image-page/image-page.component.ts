@@ -43,32 +43,32 @@ export class ImagePageComponent implements OnInit {
     this.imageService.getImages(this.id).subscribe(response => {
       this.images = response as string[]
       
-        this.currentImageUrl = this.images[this.imageIndex]
+      this.currentImageUrl = this.images[this.imageIndex]
+      
+      let flag = true
+
+      for (let index in this.imageProperty) {
+        if (this.imageProperty[index].id == this.id && this.imageProperty[index].imageIndex == this.imageIndex) {
+          flag =  false
+        }
+      }
+
+      if (flag) {
+        this.imageProperty.push({
+          'id': this.id,
+          'imageIndex': this.imageIndex,
+          'likeCounter': 0,
+          'commentBox': []
+        })
+      }
         
-        let flag = true
-
-        for (let index in this.imageProperty) {
-          if (this.imageProperty[index].id == this.id && this.imageProperty[index].imageIndex == this.imageIndex) {
-            flag =  false
-          }
+      for (let index in this.imageProperty) {
+        if (this.imageProperty[index].id == this.id && this.imageProperty[index].imageIndex == this.imageIndex) {
+          this.currentIndex = parseInt(index)
+          this.currentLike = this.imageProperty[index].likeCounter
+          this.currentComments = this.imageProperty[index].commentBox
         }
-
-        if (flag) {
-          this.imageProperty.push({
-            'id': this.id,
-            'imageIndex': this.imageIndex,
-            'likeCounter': 0,
-            'commentBox': []
-          })
-        }
-          
-        for (let index in this.imageProperty) {
-          if (this.imageProperty[index].id == this.id && this.imageProperty[index].imageIndex == this.imageIndex) {
-            this.currentIndex = parseInt(index)
-            this.currentLike = this.imageProperty[index].likeCounter
-            this.currentComments = this.imageProperty[index].commentBox
-          }
-        }
+      }
     })
 
     this.imageService.getImageProperty().subscribe(imageProperty => {

@@ -17,12 +17,7 @@ const imageUrl = 'https://insta.nextacademy.com/api/v1/images/?userId='
 })
 export class ImageService {
 
-  imageProperty = new BehaviorSubject<ImageProperties[]>([{
-    id: 0,
-    imageIndex: 0,
-    likeCounter: 0,
-    commentBox: []
-  }])
+  imageProperty = new BehaviorSubject<ImageProperties[]>([])
   
   constructor(private http: HttpClient) { }
 
@@ -35,7 +30,6 @@ export class ImageService {
   }
 
   addComment(currentId, currentImageIndex, newComment) {
-
     let updatedImageProperty = []
 
     for(let property of this.imageProperty.getValue()) {
@@ -44,9 +38,7 @@ export class ImageService {
       }
       updatedImageProperty.push(property)
     }
-    
+
     this.imageProperty.next(updatedImageProperty)
-
   }
-
 }

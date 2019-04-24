@@ -85,8 +85,7 @@ export class ProfilePageComponent implements OnInit {
           this.currentFacebookLink = this.userProfile[index].facebookLink
           this.currentEmail = this.userProfile[index].email
         }
-      }
-      
+      } 
     })
 
     this.userListService.getUserProfile().subscribe(userProfile => {
