@@ -6,11 +6,12 @@ interface User {
   id: number
   username: string
   profileImage: string
-  name: string
 }
 
 interface UserProfiles {
+  profileImage: string
   id: number
+  username: string
   name: string
   description: string
   blogLink: string
@@ -26,7 +27,7 @@ interface UserProfiles {
 export class ProfilePageComponent implements OnInit {
   users: User[] = []
 
-  userProfile: UserProfiles[] =[]
+  userProfile: UserProfiles[] = []
 
   id: number
   username: string
@@ -41,55 +42,24 @@ export class ProfilePageComponent implements OnInit {
   currentEmail: string
 
   constructor(private userListService: UserListService, private route: ActivatedRoute) {
-    this.id = this.route.snapshot.params.id;
+    this.id = parseInt(this.route.snapshot.params.id)
     this.username = this.route.snapshot.params.username;
   }
 
   ngOnInit() {
-    this.userListService.getUsers().subscribe(response => {
-      this.users = response as User[]
-
-      this.currentId = this.id
-      this.currentUsername = this.username
-
-      for (let index in this.users) {
-        if (this.users[index].id == this.id) {
-          this.currentProfileImage = this.users[index].profileImage
-        }
-      }
-
-      let flag = true
-
-      for (let index in this.userProfile) {
-        if (this.userProfile[index].id == this.id) {
-          flag =  false
-        }
-      }
-
-      if (flag) {
-        this.userProfile.push({
-          'id': this.id,
-          'name': '-',
-          'description': '-',
-          'blogLink': '-',
-          'facebookLink': '-',
-          'email': '-',
-        })
-      }
-        
-      for (let index in this.userProfile) {
-        if (this.userProfile[index].id == this.id) {                                      
-          this.currentName = this.userProfile[index].name
-          this.currentDescription = this.userProfile[index].description
-          this.currentBlogLink = this.userProfile[index].blogLink
-          this.currentFacebookLink = this.userProfile[index].facebookLink
-          this.currentEmail = this.userProfile[index].email
-        }
-      } 
-    })
-
     this.userListService.getUserProfile().subscribe(userProfile => {
-      this.userProfile = userProfile as UserProfiles[]
+      for (let profile of userProfile as UserProfiles[]) {
+        if (profile.id === this.id) {
+          this.currentId = profile.id
+          this.currentUsername = profile.username
+          this.currentProfileImage = profile.profileImage
+          this.currentName = profile.name
+          this.currentDescription = profile.description
+          this.currentBlogLink = profile.blogLink
+          this.currentFacebookLink = profile.facebookLink
+          this.currentEmail = profile.email
+        }
+      }
     })
   }
 }
